@@ -32,11 +32,20 @@ const routes = [
 				}
 			},
 			{
-				path: '/test',
-				name: 'Test',
+				path: '/order/:tableId',
+				name: 'Order',
 				component: () => import('../views/core/menu/order.vue'),
 				meta: {
-					title: 'TEST',
+					title: '点餐界面',
+					requireAuth: false
+				}
+			},
+			{
+				path: '/order',
+				name: 'OrderToken',
+				component: () => import('../views/core/tableToken.vue'),
+				meta: {
+					title: '点餐口令输入',
 					requireAuth: false
 				}
 			},
@@ -58,7 +67,6 @@ const routes = [
 						}
 					}
 				]
-				
 			}
 		]
 	}
