@@ -58,12 +58,28 @@ const routes = [
 					requireAuth: true
 				},
 				children:[
-					{   //主路由
+					{
 						name: 'user',
 						path: 'user',
 						component: ()=> import('../views/admin/user.vue'),
 						meta:{
 							title: '用户管理',
+						}
+					},
+					{
+						name: 'table',
+						path: 'table',
+						component: ()=> import('../views/admin/table.vue'),
+						meta:{
+							title: '桌台管理',
+						}
+					},
+					{
+						name: 'session',
+						path: 'session',
+						component: ()=> import('../views/admin/session.vue'),
+						meta:{
+							title: '现场管理',
 						}
 					}
 				]
@@ -86,17 +102,19 @@ router.beforeEach((to, from, next) => { //全局钩子函数
 				next({
 					name: 'Login'
 				})
+				return
 			} else {
 				axios.post(process.env.VUE_APP_API_SRC + '/Auth/TokenCheck', {
 						token: thisToken
 					})
 					.then(function(response) {
 						if (response.data.status == 200) { //token有效
-							next()
+							return
 						} else if (response.data.status == 401) {
 							next({
 								name: 'Login'
 							})
+							return
 						} else {
 							next({
 								name: '500',
@@ -104,6 +122,7 @@ router.beforeEach((to, from, next) => { //全局钩子函数
 									message: "其他错误，请联系开发者。"
 								}
 							})
+							return
 						}
 					})
 					.catch(function() {
@@ -113,8 +132,8 @@ router.beforeEach((to, from, next) => { //全局钩子函数
 								message: "会话错误。"
 							}
 						})
+						return
 					});
-				next()
 			}
 		}
 		if (to.meta.title) {

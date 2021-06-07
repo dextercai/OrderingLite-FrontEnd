@@ -15,10 +15,12 @@
 						<span slot="title">设定</span>
 					</template>
 					<el-menu-item-group title="系统管理">
-						<el-menu-item index="admin/user">用户管理</el-menu-item>
-						<el-menu-item index="1-2" disabled>用量查询</el-menu-item>
+						<router-link to="user"><el-menu-item>用户管理</el-menu-item></router-link>
+						<router-link to="table"><el-menu-item>桌台管理</el-menu-item></router-link>
 					</el-menu-item-group>
-					<el-menu-item-group title="其他"><el-menu-item index="changelog">使用说明</el-menu-item></el-menu-item-group>
+					<el-menu-item-group title="点餐管理">
+						<router-link to="session"><el-menu-item>现场管理</el-menu-item></router-link>
+					</el-menu-item-group>
 				</el-submenu>
 			</el-menu>
 		</el-aside>
