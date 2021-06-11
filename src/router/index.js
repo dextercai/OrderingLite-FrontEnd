@@ -81,6 +81,22 @@ const routes = [
 						meta:{
 							title: '现场管理',
 						}
+					},
+					{
+						name: 'kitchen',
+						path: 'kitchen',
+						component: ()=> import('../views/admin/kitchen.vue'),
+						meta:{
+							title: '后厨菜单',
+						}
+					},
+					{
+						name: 'dishType',
+						path: 'dishType',
+						component: ()=> import('../views/admin/dishType.vue'),
+						meta:{
+							title: '菜品类型',
+						}
 					}
 				]
 			}

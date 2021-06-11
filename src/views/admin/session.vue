@@ -2,7 +2,7 @@
 	<el-container>
 		<el-main>
 			<el-row :gutter="20">
-				<el-col :span="7" v-for="item in tableData" :key="item.id">
+				<el-col :span="6" v-for="item in tableData" :key="item.id">
 					<el-card class="box-card">
 						<div slot="header" class="clearfix">
 							<el-tag v-if="item.session" size="mini" effect="dark" type="danger">忙</el-tag>
@@ -83,6 +83,12 @@ import request from '../../utils/request.js';
 export default {
 	mounted() {
 		this.flush();
+		let that = this;
+		that.timer = window.setInterval(() => {
+			setTimeout(() => {
+				that.flush();
+			}, 0);
+		}, 5000);
 	},
 	data: () => {
 		return {
@@ -90,8 +96,13 @@ export default {
 			dishDetail: [],
 			dialogOrderVisible: false,
 			dialogReceiptVisible: false,
-			payId: 0
+			payId: 0,
+			timer: {}
 		};
+	},
+	beforeDestroy() {
+		clearInterval(this.timer);
+		this.timer = null; 
 	},
 	methods: {
 		flush: function() {
@@ -239,7 +250,8 @@ export default {
 }
 
 .box-card {
-	width: 200px;
+	margin: 5px;
+	width: 100%;
 	height: 300px;
 }
 </style>

@@ -20,6 +20,11 @@
 					</el-menu-item-group>
 					<el-menu-item-group title="点餐管理">
 						<router-link to="session"><el-menu-item>现场管理</el-menu-item></router-link>
+						<router-link to="kitchen"><el-menu-item>后厨一览</el-menu-item></router-link>
+					</el-menu-item-group>
+					<el-menu-item-group title="菜品管理">
+						<router-link to="dish"><el-menu-item>菜品管理</el-menu-item></router-link>
+						<router-link to="dishType"><el-menu-item>类目管理</el-menu-item></router-link>
 					</el-menu-item-group>
 				</el-submenu>
 			</el-menu>

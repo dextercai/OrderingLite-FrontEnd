@@ -39,7 +39,7 @@
 			<el-footer>
 				<el-button type="success" >{{this.tableName}}</el-button>
 				<el-button type="primary">总计 {{ this.totalAmount }} / ￥{{ this.totalPrice }}</el-button>
-				<el-button type="danger" icon="el-icon-s-goods" @click="dialogVisible = true"></el-button>
+				<el-button type="danger" icon="el-icon-s-goods" @click="dialogVisible = true">下单</el-button>
 			</el-footer>
 		</el-container>
 		<el-dialog title="点菜单" :visible.sync="dialogVisible">
