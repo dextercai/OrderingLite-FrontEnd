@@ -97,6 +97,14 @@ const routes = [
 						meta:{
 							title: '菜品类型',
 						}
+					},
+					{
+						name: 'dish',
+						path: 'dish',
+						component: ()=> import('../views/admin/dish.vue'),
+						meta:{
+							title: '菜品',
+						}
 					}
 				]
 			}
