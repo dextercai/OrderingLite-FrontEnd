@@ -10,28 +10,30 @@ export default new Vuex.Store({
 	mutations: {
 		F_ADD_DISH: (state, v) => {
 			if (state.dishList[v.id] == null) {
-				state.dishList.splice(v.id, 1); 
+				state.dishList[v.id] = null
 				let thisItem = v;
 				thisItem.amount = 1;
 				state.dishList[v.id] = thisItem;
 			} else {
 				let thisItem = state.dishList[v.id];
-				state.dishList.splice(v.id, 1);
+				state.dishList[v.id] = null
 				thisItem.amount += 1;
 				state.dishList[v.id] = thisItem;
 			}
+			state.dishList = JSON.parse(JSON.stringify(state.dishList));
 		},
 		F_DEL_DISH: (state, v) => {
 			if (state.dishList[v.id] == null) {
 				return
 			} else {
 				let thisItem = state.dishList[v.id];
-				state.dishList.splice(v.id, 1);
+				state.dishList[v.id] = null
 				thisItem.amount -= 1;
 				state.dishList[v.id] = thisItem;
 				if (state.dishList[v.id].amount == 0) {
-					state.dishList.splice(v.id, 1);
+					state.dishList[v.id] = null
 				}
+				state.dishList = JSON.parse(JSON.stringify(state.dishList));
 			}
 		},
 		F_FSH_DISH: (state) => {

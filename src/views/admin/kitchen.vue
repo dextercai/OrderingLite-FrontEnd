@@ -36,9 +36,10 @@
 							<template slot-scope="scope">
 								<span>
 									<el-button-group>
-										<el-button v-if="scope.row.status == '已下单'" type="success" round @click="change(scope.row.id, '正制作', null)">制作</el-button>
-										<el-button v-if="scope.row.status == '正制作'" type="success" round @click="change(scope.row.id, '已出菜', null)">出菜</el-button>
-										<el-button type="danger" @click="change(scope.row.id, '拒单', 0)" round>拒单</el-button>
+										<el-button v-if="scope.row.status == '已下单' && scope.row.isDone == 0" type="success" round @click="change(scope.row.id, '正制作', null)">制作</el-button>
+										<el-button v-if="scope.row.status == '正制作' && scope.row.isDone == 0" type="success" round @click="change(scope.row.id, '已出菜', null)">出菜</el-button>
+										<el-button v-if="scope.row.isDone == 0" type="danger" @click="change(scope.row.id, '拒单', 0)" round>拒单</el-button>
+										<el-button v-if="scope.row.isDone == 1" type="disable" @click="change(scope.row.id, '拒单', 0)" round>仅限拒单</el-button>
 									</el-button-group>
 								</span>
 							</template>

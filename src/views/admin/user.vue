@@ -7,7 +7,7 @@
 				<el-table-column prop="username" label="用户名"></el-table-column>
 				<el-table-column label="用户类型">
 					<template slot-scope="scope">
-						<span>{{ scope.row.type == 1 ? '普通员工' : '超级管理员' }}</span>
+						<span>{{ scope.row.type == 1 ? '普通服务员' : '超级管理员' }}</span>
 					</template>
 				</el-table-column>
 				<el-table-column label="操作">
@@ -23,7 +23,7 @@
 					<el-form-item label="密码"><el-input v-model="form.password" autocomplete="off"></el-input></el-form-item>
 					<el-form-item label="账户类型">
 						<el-select v-model="form.type" placeholder="请选择">
-							<el-option label="普通员工" value="1"></el-option>
+							<el-option label="普通服务员" value="1"></el-option>
 							<el-option label="超级管理员" value="2"></el-option>
 						</el-select>
 					</el-form-item>

@@ -105,6 +105,22 @@ const routes = [
 						meta:{
 							title: '菜品',
 						}
+					},
+					{
+						name: 'statnow',
+						path: 'statnow',
+						component: ()=> import('../views/admin/stat/now.vue'),
+						meta:{
+							title: '当前统计',
+						}
+					},
+					{
+						name: 'statdish',
+						path: 'statdish',
+						component: ()=> import('../views/admin/stat/dish.vue'),
+						meta:{
+							title: '当前统计',
+						}
 					}
 				]
 			}

@@ -84,26 +84,26 @@ export default {
 	computed: {
 		totalAmount: function() {
 			let result = 0;
-			for (let i = 0; i < this.dishAmountRaw.length; i++) {
-				if (this.dishAmountRaw[i] != null) {
-					result += this.dishAmountRaw[i].amount;
+			for (let i = 0; i < this.$store.state.dishList.length; i++) {
+				if (this.$store.state.dishList[i] != null) {
+					result += this.$store.state.dishList[i].amount;
 				}
 			}
 			return result;
 		},
 		totalPrice: function() {
 			let result = 0;
-			for (let i = 0; i < this.dishAmountRaw.length; i++) {
-				if (this.dishAmountRaw[i] != null) {
-					result += this.dishAmountRaw[i].amount * this.dishAmountRaw[i].price;
+			for (let i = 0; i < this.$store.state.dishList.length; i++) {
+				if (this.$store.state.dishList[i] != null) {
+					result += this.$store.state.dishList[i].amount * this.$store.state.dishList[i].price;
 				}
 			}
 			return result;
 		},
 		dishAmountCalced() {
 			return function(id) {
-				if (this.dishAmountRaw[id] != null) {
-					return this.dishAmountRaw[id].amount;
+				if (this.$store.state.dishList[id] != null) {
+					return this.$store.state.dishList[id].amount;
 				} else {
 					return 0;
 				}
@@ -172,18 +172,19 @@ export default {
 		},
 		getReadableDishList: function() {
 			let result = [];
-			for (let i = 0; i < this.dishAmountRaw.length; i++) {
-				if (this.dishAmountRaw[i] != null) {
-					result.push(this.dishAmountRaw[i]);
+			for (let i = 0; i < this.$store.state.dishList.length; i++) {
+				if (this.$store.state.dishList[i] != null) {
+					result.push(this.$store.state.dishList[i]);
 				}
 			}
+			
 			return result;
 		},
 		getReadableDishTotal: function() {
 			let result = 0;
-			for (let i = 0; i < this.dishAmountRaw.length; i++) {
-				if (this.dishAmountRaw[i] != null) {
-					result += this.dishAmountRaw[i].amount * this.dishAmountRaw[i].price
+			for (let i = 0; i < this.$store.state.dishList.length; i++) {
+				if (this.$store.state.dishList[i] != null) {
+					result += this.$store.state.dishList[i].amount * this.$store.state.dishList[i].price
 				}
 			}
 			return result;
@@ -195,7 +196,7 @@ export default {
 				method: 'post',
 				data: {
 					list: that.getReadableDishList(),
-					tableToken: this.$route.params.tableId
+					tableToken: that.$route.params.tableId
 				}
 			})
 				.then(function() {
