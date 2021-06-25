@@ -30,6 +30,9 @@
 						<router-link to="statnow"><el-menu-item>桌台占用</el-menu-item></router-link>
 						<router-link to="statdish"><el-menu-item>菜品统计</el-menu-item></router-link>
 					</el-menu-item-group>
+					<el-menu-item-group title="关于">
+						<router-link to="help"><el-menu-item>帮助</el-menu-item></router-link>
+					</el-menu-item-group>
 				</el-submenu>
 			</el-menu>
 		</el-aside>

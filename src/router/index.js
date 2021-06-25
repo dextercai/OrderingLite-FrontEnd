@@ -121,6 +121,15 @@ const routes = [
 						meta:{
 							title: '当前统计',
 						}
+					},
+					{
+						name: 'help',
+						path: 'help',
+						component: ()=> import('../views/admin/help.vue'),
+						meta:{
+							title: '帮助',
+							requireAuth: false
+						}
 					}
 				]
 			}
